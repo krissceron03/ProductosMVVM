@@ -33,10 +33,12 @@ namespace ProductosMVVM.ViewModels
         }
         public async void CargarProductosAsync()
         {
-            Nombre = ProductoP.Nombre;
-            Descripcion = ProductoP.Descripcion;
-            Cantidad = ProductoP.Cantidad;
-            
+            Producto proctoactualeditado = App.ProductoRepository.Get(ProductoP.IdProducto);
+            Nombre = proctoactualeditado.Nombre;
+            Descripcion = proctoactualeditado.Descripcion;
+            Cantidad = proctoactualeditado.Cantidad;
+            ProductoP = proctoactualeditado;
+
         }
 
         //FALTA LO DE BORRAR Y EDITAR

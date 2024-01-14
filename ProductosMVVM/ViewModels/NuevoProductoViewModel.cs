@@ -18,6 +18,8 @@ namespace ProductosMVVM.ViewModels
         public string Descripcion { get; set; } 
         public int Cantidad { get; set; }
 
+        
+
         public ICommand GuardarProducto =>
             new Command(async() =>
             {
@@ -28,7 +30,11 @@ namespace ProductosMVVM.ViewModels
                     Cantidad = Cantidad
                 };
                 App.ProductoRepository.Add(producto);
+                
                 await App.Current.MainPage.Navigation.PopAsync();
+                
             });
+
+        
     }
 }
